@@ -53,25 +53,6 @@ public class Manager {
         }
         return null;
     }
-    public int calculateFamilyMartyrs(List<Person> family) {
-        int totalMartyrs = 0;
-        for (Person person : family) {
-            if (person instanceof Martyr) {
-                totalMartyrs++;
-            }
-        }
-        return totalMartyrs;
-    }
-
-    public int calculateFamilyLivePersons(List<Person> family) {
-        int totalLivePersons = 0;
-        for (Person person : family) {
-            if (person instanceof LivePerson) {
-                totalLivePersons++;
-            }
-        }
-        return totalLivePersons;
-    }
     public int calculateTotalMartyrs() {
         int totalMartyrs = 0;
         for (Family family : families) {
@@ -132,8 +113,10 @@ public class Manager {
     int totalMartyrs = 0;
     int totalLivePersons = 0;
     int totalOrphans = 0;
+    boolean exists = false;
     for (Family family : families) {
-        if(family.getFamilyName() == familyName){
+        if(family.getFamilyName().equalsIgnoreCase(familyName)){
+            exists = true;
             int bothParents = 0;
             int flag = 0;
             for (Person person : family.getParents()) {
@@ -173,6 +156,9 @@ public class Manager {
 
         }
 
+    }
+    if(exists == false){
+        return null;
     }
     return List.of(totalMartyrs, totalLivePersons, totalOrphans);
 
