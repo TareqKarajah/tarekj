@@ -20,6 +20,8 @@ public class WarTest {
         family1.addMember(amro, "son");
         manager.addFamily(family1);
         user_friendly_list(manager);
+        //tarek is donkey
+        
     }
 
     public static void print_menu() {
