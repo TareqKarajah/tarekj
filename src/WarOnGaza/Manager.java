@@ -207,7 +207,7 @@ public class Manager {
 
     }
 //    method to add a parent to the family from the console the user will enter the family name and the parent attributes
-    public boolean addParent(String familyName, Person parent) {
+    public boolean addParent(String familyName, Person parent) throws AddParentException  {
         for (Family family : families) {
             if (family.getFamilyName().equalsIgnoreCase(familyName)) {
                 family.addParent(parent);

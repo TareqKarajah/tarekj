@@ -9,6 +9,8 @@ public abstract class Person {
     private String ContactInfo;
 
     public Person(String ID, String name, int age, String gender, String address, String contactInfo) {
+        // validate the age
+        validatation(name, age, gender, address, contactInfo);
         this.ID = ID;
         this.name = name;
         this.age = age;
@@ -17,9 +19,27 @@ public abstract class Person {
         this.ContactInfo = contactInfo;
     }
 
+    public void validatation(String name, int age, String gender, String address, String contactInfo) {
+        if (age < 0 || age > 120) {
+            throw new IllegalArgumentException("Age must be between 0 and 120");
+        }
+        if (name.length() < 3 || name.length() > 20) {
+            throw new IllegalArgumentException("Name must be between 3 and 20 characters");
+        }
+        if (!gender.equalsIgnoreCase("male") && !gender.equalsIgnoreCase("female")) {
+            throw new IllegalArgumentException("Gender must be either 'male' or 'female'");
+        }
+        if (address.length() < 1 || address.length() > 50) {
+            throw new IllegalArgumentException("Address must be between 5 and 50 characters");
+        }
+        if (contactInfo.length() != 10 ) {
+            throw new IllegalArgumentException("ContactInfo must be 10 characters");
+        }
+    }
+
     public Person() {
     }
-//    setters and getters for all the attributes
+    // setters and getters for all the attributes
 
     String getID() {
         return ID;
@@ -69,9 +89,9 @@ public abstract class Person {
         return ContactInfo;
     }
 
-//     string representation of the object, return all the information about the person
+    // string representation of the object, return all the information about the
+    // person
     @Override
     public abstract String toString();
 
 }
-

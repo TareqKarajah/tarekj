@@ -5,6 +5,7 @@ public class LivePerson extends Person implements Cloneable{
 
     public LivePerson(String ID, String name, int age, String gender, String address, String contactInfo) {
         super(ID, name, age, gender, address, contactInfo);
+        
     }
     public LivePerson(String name) {
         super.setName(name);

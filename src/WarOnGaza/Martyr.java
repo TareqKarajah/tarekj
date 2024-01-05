@@ -12,6 +12,7 @@ public class Martyr extends Person implements Cloneable {
     //   constructor for the class , with the person attributes .
     public Martyr(String ID, String name, int age, String gender, String address, String contactInfo, String DateOfMartyrdom, String CauseOfDeath, String PlaceOfDeath) {
         super(ID, name, age, gender, address, contactInfo);
+        
         this.DateOfMartyrdom = DateOfMartyrdom;
         this.CauseOfDeath = CauseOfDeath;
         this.PlaceOfDeath = PlaceOfDeath;
