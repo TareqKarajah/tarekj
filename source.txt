@@ -1,0 +1,3 @@
+familyname dadtype dadname momtype momname membertype role membername ...
+zaqout martyr khaled liveperson shahid liveperson son yousef
+ajlouni martyr ahmad martyr nawal liveperson daughter samar liveperson son saeed

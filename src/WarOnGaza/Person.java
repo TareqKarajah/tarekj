@@ -1,23 +1,27 @@
 package WarOnGaza;
 
-public class Person {
+public abstract class Person {
     private String ID;
     private String name;
     private int age;
-    private String Gender;
+    private String gender;
     private String address;
     private String ContactInfo;
 
-
-    public Person(String ID, String name, int age, String gender, String address) {
+    public Person(String ID, String name, int age, String gender, String address, String contactInfo) {
         this.ID = ID;
         this.name = name;
         this.age = age;
-        Gender = gender;
+        this.gender = gender;
         this.address = address;
+        this.ContactInfo = contactInfo;
     }
 
-     String getID() {
+    public Person() {
+    }
+//    setters and getters for all the attributes
+
+    String getID() {
         return ID;
     }
 
@@ -42,11 +46,11 @@ public class Person {
     }
 
     public String getGender() {
-        return Gender;
+        return gender;
     }
 
     public void setGender(String gender) {
-        Gender = gender;
+        gender = gender;
     }
 
     public String getAddress() {
@@ -57,20 +61,17 @@ public class Person {
         this.address = address;
     }
 
+    public void setContactInfo(String contactInfo) {
+        ContactInfo = contactInfo;
+    }
+
     public String getContactInfo() {
         return ContactInfo;
     }
 
+//     string representation of the object, return all the information about the person
     @Override
-    public String toString() {
-        return "Person{" +
-                "ID='" + ID + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", Gender='" + Gender + '\'' +
-                ", address='" + address + '\'' +
-                ", ContactInfo='" + ContactInfo + '\'' +
-                '}'+ "\n";
-    }
+    public abstract String toString();
+
 }
 
