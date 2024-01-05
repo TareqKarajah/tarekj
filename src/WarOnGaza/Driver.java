@@ -101,29 +101,37 @@ public class Driver {
             File file = new File("source.txt");
             Scanner scanner = new Scanner(file);
             String line = scanner.nextLine();
+            ArrayList<String> families = new ArrayList<>();
+             
             while (scanner.hasNextLine()) {
                 line = scanner.nextLine();
                 String[] data = line.split(" ");
+                // check if family name is already exist
+                
+                if(!families.contains(data[1])){
+                    manager.addFamily(new Family(data[1]));
+                    families.add(data[1]);
+                }
+                else{
+                    System.out.println("family already exist");
+                }
+                
                 // martyr zaqout dad 1 khaled 55 male gaza 0599200465 2022-10-12 bomb gaza
                 // liveperson zaqout mom 2 shahid 47 female gaza 0598454216
                 if (data[0].equalsIgnoreCase("martyr")) {
+                    // add familiy
+
                     Martyr Martyr = new Martyr(data[3], data[4], Integer.parseInt(data[5]), data[6], data[7],
                             data[8],
                             data[9], data[10], data[11]);
                     if (data[2].equalsIgnoreCase("dad")) {
-                        try {
-                            manager.addParent(data[1], Martyr);
-                        } catch (AddParentException e) {
-                            System.out.println(e.getMessage());
-                        }
-
+                        manager.addParent(data[1], Martyr);
                     } else if (data[2].equalsIgnoreCase("mom")) {
                         manager.addParent(data[1], Martyr);
 
                     } else {
                         manager.addMember(data[1], Martyr, data[2]);
                     }
-                    
 
                 } else if (data[0].equalsIgnoreCase("liveperson")) {
                     LivePerson livePerson = new LivePerson(data[3], data[4], Integer.parseInt(data[5]), data[6],
