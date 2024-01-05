@@ -151,7 +151,7 @@ public class Driver {
         Exception e) {
             System.out.println(e.getMessage());
         }
-        System.out.println(manager.getFamilies());
+        //System.out.println(manager.getFamilies());
     }
 
     public static void WriteToFile(Manager manager) {
